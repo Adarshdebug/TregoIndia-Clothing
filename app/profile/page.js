@@ -61,18 +61,19 @@ export default function ProfilePage() {
   return (
     <main className="page-gap">
       <section className="container-shell grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
-        <div className="surface p-5 sm:p-6">
+        <div className="premium-panel p-5 sm:p-6">
           {booted && user ? (
             <>
-              <h1 className="text-3xl font-semibold">Profile</h1>
+              <div className="premium-pill">Member profile</div>
+              <h1 className="font-display mt-4 text-[2.8rem] leading-[0.92]">Your private account</h1>
               <p className="mt-2 text-sm text-[var(--muted)]">{user.email}</p>
               <div className="mt-5 space-y-3 text-sm">
-                <div className="surface-alt p-4">
+                <div className="premium-subtle p-4">
                   <div className="font-semibold">{user.name}</div>
                   <div className="mt-1 text-[var(--muted)]">Role: {user.role}</div>
                 </div>
               </div>
-              <button type="button" onClick={logout} className="button-secondary mt-6">
+              <button type="button" onClick={logout} className="premium-button-secondary mt-6">
                 Logout
               </button>
             </>
@@ -82,14 +83,14 @@ export default function ProfilePage() {
                 <button
                   type="button"
                   onClick={() => setMode("login")}
-                  className={mode === "login" ? "button-primary" : "button-secondary"}
+                  className={mode === "login" ? "premium-button" : "premium-button-secondary"}
                 >
                   Login
                 </button>
                 <button
                   type="button"
                   onClick={() => setMode("signup")}
-                  className={mode === "signup" ? "button-primary" : "button-secondary"}
+                  className={mode === "signup" ? "premium-button" : "premium-button-secondary"}
                 >
                   Sign up
                 </button>
@@ -102,7 +103,7 @@ export default function ProfilePage() {
                     <input
                       value={form.name}
                       onChange={(event) => setForm((current) => ({ ...current, name: event.target.value }))}
-                      className="field"
+                      className="premium-input"
                     />
                   </div>
                 ) : null}
@@ -112,7 +113,7 @@ export default function ProfilePage() {
                     type="email"
                     value={form.email}
                     onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
-                    className="field"
+                    className="premium-input"
                   />
                 </div>
                 <div>
@@ -121,11 +122,11 @@ export default function ProfilePage() {
                     type="password"
                     value={form.password}
                     onChange={(event) => setForm((current) => ({ ...current, password: event.target.value }))}
-                    className="field"
+                    className="premium-input"
                   />
                 </div>
                 {message ? <p className="text-sm text-[var(--muted)]">{message}</p> : null}
-                <button type="submit" disabled={loading} className="button-primary w-full">
+                <button type="submit" disabled={loading} className="premium-button w-full">
                   {loading ? "Please wait..." : mode === "login" ? "Login" : "Create account"}
                 </button>
               </form>
@@ -133,12 +134,12 @@ export default function ProfilePage() {
           )}
         </div>
 
-        <div className="surface p-5 sm:p-6">
-          <h2 className="text-2xl font-semibold">Orders</h2>
+        <div className="premium-panel p-5 sm:p-6">
+          <h2 className="font-display text-[2.4rem] leading-none">Orders</h2>
           <div className="mt-5 space-y-4">
             {orders.length ? (
               orders.map((order) => (
-                <div key={order._id} className="surface-alt p-4">
+                <div key={order._id} className="premium-subtle p-4">
                   <div className="flex flex-wrap items-center justify-between gap-3">
                     <div className="font-semibold">Order #{order._id.slice(-6).toUpperCase()}</div>
                     <div className="text-sm text-[var(--muted)]">{order.status}</div>

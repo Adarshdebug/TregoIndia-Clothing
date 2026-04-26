@@ -21,26 +21,29 @@ export default function CartPage() {
       <section className="container-shell grid gap-6 lg:grid-cols-[1fr_360px]">
         <div className="space-y-4">
           <div>
-            <h1 className="text-3xl font-semibold">Cart</h1>
-            <p className="mt-2 text-sm text-[var(--muted)]">Review items before checkout.</p>
+            <div className="premium-pill">Private cart</div>
+            <h1 className="font-display mt-4 text-[2.8rem] leading-[0.92]">Review your selection</h1>
+            <p className="mt-2 text-sm text-[var(--muted)]">
+              A calmer final pass before you move into checkout.
+            </p>
           </div>
 
           {cart.length ? (
             cart.map((item) => (
-              <div key={`${item.productId}-${item.size}`} className="surface flex gap-4 p-4">
+              <div key={`${item.productId}-${item.size}`} className="premium-panel flex gap-4 p-4">
                 <div className="relative h-24 w-20 overflow-hidden rounded-lg bg-[var(--surface-alt)]">
                   <Image src={item.image || "/logo.png"} alt={item.name} fill sizes="80px" className="object-cover" />
                 </div>
                 <div className="flex flex-1 flex-col justify-between gap-3">
                   <div className="flex items-start justify-between gap-3">
                     <div>
-                      <h2 className="font-semibold">{item.name}</h2>
+                      <h2 className="font-display text-2xl leading-none">{item.name}</h2>
                       <p className="text-sm text-[var(--muted)]">Size {item.size}</p>
                     </div>
                     <button
                       type="button"
                       onClick={() => removeItem(item.productId, item.size)}
-                      className="button-secondary !min-h-[38px] !px-3"
+                      className="premium-button-secondary !min-h-[38px] !px-3"
                     >
                       <Trash2 size={16} />
                     </button>
@@ -50,7 +53,7 @@ export default function CartPage() {
                       <button
                         type="button"
                         onClick={() => updateQuantity(item.productId, item.size, item.quantity - 1)}
-                        className="button-secondary !min-h-[38px] !px-3"
+                        className="premium-button-secondary !min-h-[38px] !px-3"
                       >
                         <Minus size={16} />
                       </button>
@@ -58,28 +61,28 @@ export default function CartPage() {
                       <button
                         type="button"
                         onClick={() => updateQuantity(item.productId, item.size, item.quantity + 1)}
-                        className="button-secondary !min-h-[38px] !px-3"
+                        className="premium-button-secondary !min-h-[38px] !px-3"
                       >
                         <Plus size={16} />
                       </button>
                     </div>
-                    <div className="font-semibold">{formatPrice(item.price * item.quantity)}</div>
+                    <div className="font-semibold text-[var(--accent)]">{formatPrice(item.price * item.quantity)}</div>
                   </div>
                 </div>
               </div>
             ))
           ) : (
-            <div className="surface p-6">
+            <div className="premium-panel p-6">
               <p className="text-[var(--muted)]">Your cart is empty.</p>
-              <Link href="/shop" className="button-primary mt-4">
+              <Link href="/shop" className="premium-button mt-4">
                 Continue shopping
               </Link>
             </div>
           )}
         </div>
 
-        <aside className="surface h-fit p-5">
-          <h2 className="text-xl font-semibold">Summary</h2>
+        <aside className="premium-panel h-fit p-5">
+          <h2 className="font-display text-[2rem] leading-none">Summary</h2>
           <div className="mt-5 flex items-center justify-between text-sm">
             <span className="text-[var(--muted)]">Subtotal</span>
             <span>{formatPrice(subtotal)}</span>
@@ -96,7 +99,7 @@ export default function CartPage() {
           </div>
           <Link
             href={cart.length ? "/checkout" : "/shop"}
-            className="button-primary mt-5 flex w-full justify-center"
+            className="premium-button mt-5 flex w-full justify-center"
           >
             {cart.length ? "Proceed to checkout" : "Browse products"}
           </Link>

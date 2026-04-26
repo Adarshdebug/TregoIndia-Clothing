@@ -15,9 +15,10 @@ export default async function ShopPage({ searchParams }) {
       <section className="container-shell">
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
           <div>
-            <h1 className="text-3xl font-semibold">Shop</h1>
+            <div className="premium-pill">Curated catalog</div>
+            <h1 className="font-display mt-4 text-[2.8rem] leading-[0.92]">Shop the collection</h1>
             <p className="mt-2 text-sm text-[var(--muted)]">
-              Browse the catalog with quick filters and lightweight pages.
+              Explore the TregoIndia edit through a softer, more premium browsing experience.
             </p>
           </div>
           <form className="flex w-full max-w-xl flex-col gap-3 sm:flex-row">
@@ -25,10 +26,14 @@ export default async function ShopPage({ searchParams }) {
               type="search"
               name="search"
               defaultValue={params?.search || ""}
-              placeholder="Search products"
-              className="field"
+              placeholder="Search the collection"
+              className="premium-input"
             />
-            <select name="category" defaultValue={params?.category || ""} className="field sm:max-w-[220px]">
+            <select
+              name="category"
+              defaultValue={params?.category || ""}
+              className="premium-select sm:max-w-[220px]"
+            >
               <option value="">All categories</option>
               {categories.map((category) => (
                 <option key={category} value={category}>
@@ -36,7 +41,7 @@ export default async function ShopPage({ searchParams }) {
                 </option>
               ))}
             </select>
-            <button type="submit" className="button-primary sm:min-w-[120px]">
+            <button type="submit" className="premium-button sm:min-w-[120px]">
               Filter
             </button>
           </form>

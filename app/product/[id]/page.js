@@ -30,7 +30,10 @@ export default async function ProductPage({ params }) {
         <div className="grid gap-6 lg:grid-cols-[1fr_0.9fr]">
           <div className="grid gap-4 sm:grid-cols-2">
             {(product.images?.length ? product.images : ["/logo.png"]).map((image, index) => (
-              <div key={`${product.id}-${index}`} className="surface relative aspect-[4/5] overflow-hidden">
+              <div
+                key={`${product.id}-${index}`}
+                className="premium-panel relative aspect-[4/5] overflow-hidden"
+              >
                 <Image
                   src={image}
                   alt={`${product.name} ${index + 1}`}
@@ -43,14 +46,14 @@ export default async function ProductPage({ params }) {
             ))}
           </div>
 
-          <div className="surface h-fit p-5 sm:p-6">
-            <div className="mb-3 inline-flex rounded-full bg-[var(--accent-soft)] px-3 py-1 text-xs font-semibold text-[var(--accent)]">
+          <div className="premium-panel h-fit p-5 sm:p-6">
+            <div className="premium-pill mb-3">
               {product.category}
             </div>
-            <h1 className="text-3xl font-semibold">{product.name}</h1>
+            <h1 className="font-display text-[3rem] leading-[0.9]">{product.name}</h1>
             <p className="mt-3 text-sm leading-7 text-[var(--muted)]">{product.description}</p>
             <div className="mt-5 flex items-center gap-3">
-              <span className="text-2xl font-semibold">{formatPrice(product.price)}</span>
+              <span className="text-2xl font-semibold text-[var(--accent)]">{formatPrice(product.price)}</span>
               {product.compareAtPrice ? (
                 <span className="text-[var(--muted)] line-through">
                   {formatPrice(product.compareAtPrice)}
@@ -58,8 +61,8 @@ export default async function ProductPage({ params }) {
               ) : null}
             </div>
             <div className="mt-5 grid gap-3 text-sm text-[var(--muted)] sm:grid-cols-2">
-              <div className="surface-alt p-3">Gender: {product.gender}</div>
-              <div className="surface-alt p-3">Stock: {product.stock}</div>
+              <div className="premium-subtle p-3">Gender: {product.gender}</div>
+              <div className="premium-subtle p-3">Stock: {product.stock}</div>
             </div>
             <div className="mt-6">
               <AddToCartButton product={product} />

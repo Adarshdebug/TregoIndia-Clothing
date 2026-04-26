@@ -27,26 +27,27 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="container-shell py-8">
-      <form onSubmit={handleSubmit} className="mx-auto max-w-md touch-card space-y-4 p-6">
-        <h1 className="text-3xl font-semibold tracking-[-0.04em]">Login</h1>
+    <main className="container-shell page-gap">
+      <form onSubmit={handleSubmit} className="premium-panel mx-auto max-w-md space-y-4 p-6">
+        <div className="premium-pill">Member access</div>
+        <h1 className="font-display text-[3rem] leading-[0.9]">Login</h1>
         <input
           type="email"
           placeholder="Email"
           value={form.email}
           onChange={(event) => setForm((current) => ({ ...current, email: event.target.value }))}
-          className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-4"
+          className="premium-input"
         />
         <input
           type="password"
           placeholder="Password"
           value={form.password}
           onChange={(event) => setForm((current) => ({ ...current, password: event.target.value }))}
-          className="w-full rounded-2xl border border-white/10 bg-white/5 px-4 py-4"
+          className="premium-input"
         />
-        <button className="w-full rounded-full bg-white px-5 py-4 text-sm font-semibold text-black">Login</button>
+        <button className="premium-button w-full">Login</button>
         <p className="text-sm text-white/55">
-          New here? <Link href="/signup" className="text-white">Create an account</Link>
+          New here? <Link href="/signup" className="text-[var(--accent)]">Create an account</Link>
         </p>
       </form>
     </main>

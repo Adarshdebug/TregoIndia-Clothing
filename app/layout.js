@@ -1,11 +1,17 @@
 import "./globals.css";
-import { Inter } from "next/font/google";
+import { Cormorant_Garamond, Inter } from "next/font/google";
 import { Providers } from "@/components/providers";
 import { AppFrame } from "@/components/layout/app-frame";
 
 const font = Inter({
   subsets: ["latin"],
   variable: "--font-inter"
+});
+
+const displayFont = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-display"
 });
 
 export const metadata = {
@@ -15,7 +21,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={font.variable}>
+    <html lang="en" className={`${font.variable} ${displayFont.variable}`}>
       <body>
         <Providers>
           <AppFrame>{children}</AppFrame>

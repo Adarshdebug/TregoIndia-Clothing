@@ -82,9 +82,10 @@ export default function CheckoutPage() {
   return (
     <main className="page-gap">
       <section className="container-shell grid gap-6 lg:grid-cols-[1fr_360px]">
-        <form onSubmit={handleSubmit} className="surface p-5 sm:p-6">
+        <form onSubmit={handleSubmit} className="premium-panel p-5 sm:p-6">
           <div className="mb-6">
-            <h1 className="text-3xl font-semibold">Checkout</h1>
+            <div className="premium-pill">Secure checkout</div>
+            <h1 className="font-display mt-4 text-[2.8rem] leading-[0.92]">Complete your order</h1>
             <p className="mt-2 text-sm text-[var(--muted)]">
               {user ? `Checking out as ${user.email}` : "Guest checkout is enabled."}
             </p>
@@ -110,8 +111,8 @@ export default function CheckoutPage() {
                   key={method.value}
                   type="button"
                   onClick={() => setPaymentMethod(method.value)}
-                  className={`surface p-4 text-left ${
-                    paymentMethod === method.value ? "border-[var(--text)]" : ""
+                  className={`premium-subtle p-4 text-left ${
+                    paymentMethod === method.value ? "border-[rgba(242,194,123,0.28)] bg-[rgba(242,194,123,0.08)]" : ""
                   }`}
                 >
                   <div className="font-semibold">{method.label}</div>
@@ -123,13 +124,13 @@ export default function CheckoutPage() {
 
           {error ? <p className="mt-4 text-sm text-[var(--danger)]">{error}</p> : null}
 
-          <button type="submit" disabled={!canCheckout || loading} className="button-primary mt-6 w-full">
+          <button type="submit" disabled={!canCheckout || loading} className="premium-button mt-6 w-full">
             {loading ? "Processing..." : `Pay ${formatPrice(subtotal)}`}
           </button>
         </form>
 
-        <aside className="surface h-fit p-5">
-          <h2 className="text-xl font-semibold">Order summary</h2>
+        <aside className="premium-panel h-fit p-5">
+          <h2 className="font-display text-[2rem] leading-none">Order summary</h2>
           <div className="mt-4 space-y-3">
             {cart.map((item) => (
               <div key={`${item.productId}-${item.size}`} className="flex items-start justify-between gap-3 text-sm">
@@ -159,7 +160,11 @@ function Field({ label, value, onChange, className = "" }) {
   return (
     <div className={className}>
       <label className="label">{label}</label>
-      <input value={value} onChange={(event) => onChange(event.target.value)} className="field" />
+      <input
+        value={value}
+        onChange={(event) => onChange(event.target.value)}
+        className="premium-input"
+      />
     </div>
   );
 }

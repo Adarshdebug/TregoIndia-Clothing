@@ -27,7 +27,9 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  background: var(--background);
+  background:
+    radial-gradient(circle at top, rgba(242, 194, 123, 0.08), transparent 22%),
+    linear-gradient(180deg, #090909 0%, #050505 52%, #080808 100%);
   color: var(--text);
   font-family: var(--font-inter), Arial, sans-serif;
 }
@@ -130,6 +132,96 @@ img {
 
 .page-gap {
   padding-block: 24px 96px;
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, serif;
+}
+
+.premium-panel {
+  background: linear-gradient(180deg, rgba(19, 19, 19, 0.92), rgba(10, 10, 10, 0.98));
+  border: 1px solid rgba(242, 194, 123, 0.12);
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.24);
+}
+
+.premium-subtle {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+}
+
+.premium-pill {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(242, 194, 123, 0.18);
+  background: rgba(242, 194, 123, 0.08);
+  color: var(--accent);
+  padding: 6px 12px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.premium-heading {
+  font-family: var(--font-display), Georgia, serif;
+  letter-spacing: 0.01em;
+  line-height: 0.95;
+}
+
+.premium-input {
+  width: 100%;
+  min-height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0 18px;
+  color: var(--text);
+}
+
+.premium-input:focus {
+  outline: 2px solid rgba(242, 194, 123, 0.18);
+  outline-offset: 1px;
+}
+
+.premium-select {
+  width: 100%;
+  min-height: 50px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 0 18px;
+  color: var(--text);
+}
+
+.premium-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #080808;
+  padding: 0 22px;
+  font-weight: 600;
+}
+
+.premium-button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 50px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text);
+  padding: 0 22px;
+  font-weight: 600;
 }
 
 @media (min-width: 768px) {

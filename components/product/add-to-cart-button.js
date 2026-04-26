@@ -27,7 +27,11 @@ export function AddToCartButton({ product }) {
     <div className="space-y-4">
       <div>
         <label className="label">Size</label>
-        <select value={size} onChange={(event) => setSize(event.target.value)} className="field">
+        <select
+          value={size}
+          onChange={(event) => setSize(event.target.value)}
+          className="premium-select"
+        >
           {(product.sizes || ["Free"]).map((option) => (
             <option key={option} value={option}>
               {option}
@@ -35,7 +39,12 @@ export function AddToCartButton({ product }) {
           ))}
         </select>
       </div>
-      <button type="button" onClick={handleAdd} className="button-primary w-full" disabled={disabled}>
+      <button
+        type="button"
+        onClick={handleAdd}
+        className="premium-button w-full"
+        disabled={disabled}
+      >
         <ShoppingBag size={18} />
         <span>{disabled ? "Out of stock" : added ? "Added to cart" : "Add to cart"}</span>
       </button>
