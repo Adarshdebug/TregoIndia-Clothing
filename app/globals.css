@@ -1,0 +1,143 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  --background: #050505;
+  --surface: #111111;
+  --surface-alt: #1a1a1a;
+  --text: #f6f6f6;
+  --muted: #b4b4b4;
+  --line: #2a2a2a;
+  --accent: #f2c27b;
+  --accent-soft: #201811;
+  --success: #4bbb7a;
+  --danger: #ff8f8f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--text);
+  font-family: var(--font-inter), Arial, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.container-shell {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1200px;
+  padding-inline: 16px;
+}
+
+.surface {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.surface-alt {
+  background: var(--surface-alt);
+  border: 1px solid rgba(123, 63, 0, 0.08);
+  border-radius: 8px;
+}
+
+.button-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  border: 0;
+  border-radius: 8px;
+  background: var(--text);
+  color: var(--background);
+  padding: 0 18px;
+  cursor: pointer;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.button-primary:hover {
+  opacity: 0.92;
+}
+
+.button-primary:active {
+  transform: scale(0.98);
+}
+
+.button-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-alt);
+  color: var(--text);
+  padding: 0 18px;
+  cursor: pointer;
+}
+
+.field {
+  width: 100%;
+  min-height: 46px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-alt);
+  padding: 12px 14px;
+  color: var(--text);
+}
+
+.field:focus {
+  outline: 2px solid rgba(123, 63, 0, 0.2);
+  outline-offset: 1px;
+}
+
+.label {
+  display: block;
+  margin-bottom: 8px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.page-gap {
+  padding-block: 24px 96px;
+}
+
+@media (min-width: 768px) {
+  .container-shell {
+    padding-inline: 24px;
+  }
+
+  .page-gap {
+    padding-block: 32px 48px;
+  }
+}
